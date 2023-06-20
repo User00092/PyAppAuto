@@ -12,7 +12,7 @@ import time
 import cv2
 import os
 
-__version__ = '1.0.1'
+__version__ = '1.0.2'
 
 
 class Instance:
@@ -28,6 +28,7 @@ class Instance:
         self.__process = None
         self.__kill = False
         self._debug = debug
+        self.__watch_close_thread = None
 
         if hwnd:
             Thread(target=self._close_handler).start()
@@ -39,7 +40,12 @@ class Instance:
         print(f'[DEBUG] {title}: {content}')
     
     def _close_handler(self):
+        if self.__watch_close_thread:
+            return
+        
         self.__debug('Info', 'Created close handler.')
+
+        self.__watch_close_thread = self._close_handler
 
         while not self.__kill:
             if not win32gui.IsWindow(self._hwnd):
@@ -109,6 +115,7 @@ class Instance:
         
         self.__process = None
         self._hwnd = None
+        self.__watch_close_thread = None
         self.__debug('Success', 'Closed application.')
 
     def set_monitor(self, monitor_number: int = 0) -> None:

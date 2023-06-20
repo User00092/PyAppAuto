@@ -13,7 +13,7 @@ DESCRIPTION = 'Control an app without disturbing your everyday life.'
 setup(
 	name="pyappauto",
 	url="https://github.com/User00092/PyAppAuto",
-	version='1.0.1',
+	version='1.0.2',
 	license='MIT',
 	author="User0092",
 	author_email="unknownuser0092@protonmail.com",

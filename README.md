@@ -8,6 +8,10 @@ Control an app without disturbing your everyday life.
 - Windows 10+
 - Python 3.7 or higher.
 
+## Latest Patch
+
+- Fixed `_close_handler` recursion error.
+
 ## Features
 
 - Attach to a created window by hwnd, or create one by path.
@@ -20,7 +24,7 @@ Control an app without disturbing your everyday life.
 - Set the window size and position.
 - Double click (Simulates a double click, sending a double click crashes the window)
 - pyappauto.utils.keys.KeyCodes
-
+ 
 ## Installation
 
 - Install with pip.
